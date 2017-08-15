@@ -36,6 +36,9 @@ else
 
 $url .= "://".$_SERVER['SERVER_NAME'];
 
+if (!in_array($_SERVER["SERVER_PORT"], ["80","443"]))
+  $url .= ":".$_SERVER["SERVER_PORT"];
+
 $dir = basename(dirname($_SERVER['PHP_SELF']));
 if (!empty($dir))
 	$url .= "/".$dir;
